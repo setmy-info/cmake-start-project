@@ -1,0 +1,12 @@
+# PLACEHOLDER-BEGIN #
+
+#INSTALL(DIRECTORY "${LIBRARY_OUTPUT_PATH}/profiles"                  DESTINATION lib)
+#INSTALL(FILES "${LIBRARY_OUTPUT_PATH}/base.sh"                       DESTINATION lib)
+#INSTALL(FILES "${LIBRARY_OUTPUT_PATH}/commons.sh"                    DESTINATION lib)
+#INSTALL(FILES "${LIBRARY_OUTPUT_PATH}/konsole.sh"                    DESTINATION lib)
+
+IF(DISTRIBUTION STREQUAL "FreeBSD")
+    #INSTALL(FILES "${LIBRARY_OUTPUT_PATH}/freebsd.sh"                DESTINATION lib)
+ENDIF()
+
+# PLACEHOLDER-END #

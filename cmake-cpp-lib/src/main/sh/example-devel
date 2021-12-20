@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Author: Imre Tabur
+export LD_LIBRARY_PATH=@LIBRARY_OUTPUT_PATH@:$LD_LIBRARY_PATH
+COMMAND_NAME=example
+
+@EXECUTABLE_OUTPUT_PATH@/$COMMAND_NAME.bin $@
+
+exit $?

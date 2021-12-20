@@ -1,0 +1,10 @@
+# PLACEHOLDER-BEGIN #
+
+CONFIGURE_FILE("${SOURCES_PATH}/main/cpp/include/Version.h.in"  "${SOURCES_PATH}/main/cpp/include/Version.h")
+CONFIGURE_FILE("${SOURCES_PATH}/main/sh/example"                "${PROJECT_BINARY_DIR}/bin/example"        )
+CONFIGURE_FILE("${SOURCES_PATH}/main/sh/example-devel"          "${PROJECT_BINARY_DIR}/bin/example-devel")
+CONFIGURE_FILE("${SOURCES_PATH}/main/sh/example-test"           "${PROJECT_BINARY_DIR}/bin/example-test")
+CONFIGURE_FILE("${SOURCES_PATH}/main/sh/valgrind-test"          "${PROJECT_BINARY_DIR}/bin/valgrind-test")
+CONFIGURE_FILE("${SOURCES_PATH}/main/sh/debug"                  "${PROJECT_BINARY_DIR}/bin/debug")
+
+# PLACEHOLDER-END #

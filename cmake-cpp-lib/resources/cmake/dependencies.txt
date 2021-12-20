@@ -1,0 +1,13 @@
+# PLACEHOLDER-BEGIN #
+
+ADD_DEPENDENCIES(build gzipman)
+ADD_DEPENDENCIES(gzipman  dirs)
+ADD_DEPENDENCIES(clear cmakeClear buildClear pkgClear binClean libClean docsClean)
+
+ADD_DEPENDENCIES(example.bin    exampleshared)
+ADD_DEPENDENCIES(example.bin    examplestatic)
+ADD_DEPENDENCIES(test.bin       exampleshared)
+ADD_DEPENDENCIES(test.bin       examplestatic)
+ADD_DEPENDENCIES(example.bin    gzipman)
+
+# PLACEHOLDER-END #

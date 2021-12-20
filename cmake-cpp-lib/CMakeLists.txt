@@ -1,0 +1,32 @@
+cmake_minimum_required (VERSION 3.22.1)
+
+# PLACEHOLDER-BEGIN #
+
+PROJECT (setmy-info-scripts)
+
+SET (PROJECT_VERSION_MAJOR              0)
+SET (PROJECT_VERSION_MINOR              1)
+SET (PROJECT_VERSION_PATCH              0)
+SET (PROJECT_VERSION_TWEAK              0)
+
+SET (PROJECT_DESCRIPTION_SUMMARY        "setmy.info C++ project")
+SET (PROJECT_DESCRIPTION                "setmy.info C++ project Example")
+SET (PROJECT_VENDOR                     "Hear And See Systems LLC")
+SET (PROJECT_MAINTAINER                 "Imre Tabur <imre.tabur@eesti.ee>")
+SET (PROJECT_WWW                        "https://setmy.info")
+SET (PROJECT_LICENSE                    "MIT")
+
+INCLUDE(./resources/cmake/variables.txt)
+INCLUDE(./resources/cmake/targets.txt)
+INCLUDE(./resources/cmake/dependencies.txt)
+INCLUDE(./resources/cmake/configure.txt)
+INCLUDE(./resources/cmake/lib.txt)
+INCLUDE(./resources/cmake/bin.txt)
+INCLUDE(./resources/cmake/man.txt)
+INCLUDE(./resources/cmake/etc.txt)
+
+# PLACEHOLDER-PRE-PACKAGING #
+
+INCLUDE(./resources/cmake/packaging.txt)
+
+# PLACEHOLDER-END #

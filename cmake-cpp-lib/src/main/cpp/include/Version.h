@@ -1,0 +1,6 @@
+// the configured options and settings for module
+#define PROJECT_MODULE_VERSION_MAJOR 0
+#define PROJECT_MODULE_VERSION_MINOR 1
+#define PROJECT_MODULE_VERSION_PATCH 0
+#define PROJECT_MODULE_VERSION_TWEAK 0
+#define PROJECT_MODULE_VERSION_STRING "0.1.0"
