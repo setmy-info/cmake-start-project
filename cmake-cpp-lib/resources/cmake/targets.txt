@@ -8,27 +8,27 @@ ADD_CUSTOM_TARGET(build             ALL)
 ADD_CUSTOM_TARGET(clear             )
 
 ADD_CUSTOM_TARGET(dirs
-    mkdir -p ${BUILD_PATH} &&
+    mkdir -p ${TARGET_PATH} &&
     mkdir -p ${MAN_OUTPUT_PATH}/man1 &&
     mkdir -p ${INFO_OUTPUT_PATH} &&
+    mkdir -p ${INCLUDE_OUTPUT_PATH} &&
     mkdir -p ${LIBRARY_OUTPUT_PATH} &&
-    mkdir -p build/debug &&
-    mkdir -p build/release
-    # WORKING_DIRECTORY ./
+    mkdir -p ${DOC_OUTPUT_PATH} &&
+    mkdir -p ${TARGET_PATH}/debug &&
+    mkdir -p ${TARGET_PATH}/release
 )
 
+ADD_CUSTOM_TARGET(includes    cp ${MAIN_SOURCES_PATH}/cpp/include/Development.h ${INCLUDE_OUTPUT_PATH})
+ADD_CUSTOM_TARGET(docs        cp ${RESOURCES_PATH}/doc/example.txt ${DOC_OUTPUT_PATH})
 ADD_CUSTOM_TARGET(gzipman     cp ${RESOURCES_PATH}/man/*.1 ${MAN_OUTPUT_PATH}/man1 && gzip -f ${MAN_OUTPUT_PATH}/man1/*.1)
-ADD_CUSTOM_TARGET(analysis    echo cccc ./src/main/cpp/*.cpp ./src/main/cpp/include/*.h WORKING_DIRECTORY ./)
+ADD_CUSTOM_TARGET(analysis    echo cccc ${MAIN_SOURCES_PATH}/cpp/*.cpp .${MAIN_SOURCES_PATH}/cpp/include/*.h WORKING_DIRECTORY ./)
 ADD_CUSTOM_TARGET(cppcheck    cppcheck -v --xml --xml-version=2 --enable=all -I ${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src 2> check.xml WORKING_DIRECTORY ./)
 ADD_CUSTOM_TARGET(debuging    ./debug DEPENDS test.bin WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 ADD_CUSTOM_TARGET(valgrind    ./valgrind-test DEPENDS test.bin WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 ADD_CUSTOM_TARGET(doxygen     doxygen)
-ADD_CUSTOM_TARGET(buildClear  rm -rf ./build)
+ADD_CUSTOM_TARGET(buildClear  rm -rf ${TARGET_PATH})
 ADD_CUSTOM_TARGET(pkgClear    rm -rf ./${PROJECT_NAME}*.tar.gz ./${PROJECT_NAME}*.rpm ./${PROJECT_NAME}*.sh ./${PROJECT_NAME}*.deb ./${PROJECT_NAME}*.tar.Z ./${PROJECT_NAME}*.7z ./${PROJECT_NAME}*.tar.bz2 ./${PROJECT_NAME}*.tar.xz ./${PROJECT_NAME}*.zip)
-ADD_CUSTOM_TARGET(cmakeClear  rm -rf ./*.cmake ./_CPack_Packages install_manifest.txt CMakeCache.txt resources/CMakeFiles resources/cmake/CMakeFiles resources/cmake/*.cmake resources/cmake/CMakeCache.txt)
-ADD_CUSTOM_TARGET(binClean    rm -r ./bin)
-ADD_CUSTOM_TARGET(libClean    rm -r ./lib)
-ADD_CUSTOM_TARGET(docsClean   rm -r ./docs)
+ADD_CUSTOM_TARGET(cmakeClear  rm -rf ./*.cmake ./_CPack_Packages install_manifest.txt CMakeCache.txt ${RESOURCES_PATH}/CMakeFiles ${RESOURCES_PATH}/cmake/CMakeFiles ${RESOURCES_PATH}/cmake/*.cmake ${RESOURCES_PATH}/cmake/CMakeCache.txt)
 
 ADD_EXECUTABLE(example.bin      src/main/cpp/main.cpp)
 ADD_EXECUTABLE(test.bin         ${PROJECT_MODULE_TEST_SOURCES})
@@ -38,14 +38,13 @@ ADD_LIBRARY(exampleshared       SHARED ${PROJECT_MODULE_LIBRARY_SOURCES})
 TARGET_LINK_LIBRARIES(example.bin "${EXAMPLE_LINKING}")
 TARGET_LINK_LIBRARIES(test.bin    "${EXAMPLE_TEST_LINKING}")
 
-INSTALL(TARGETS exampleshared                        DESTINATION lib)
-INSTALL(TARGETS examplestatic                        DESTINATION lib)
-INSTALL(TARGETS example.bin                          DESTINATION bin)
-INSTALL(PROGRAMS ${EXECUTABLE_OUTPUT_PATH}/example   DESTINATION bin)
-INSTALL(FILES "include/Development.h"                DESTINATION include)
-INSTALL(FILES "${MAN_OUTPUT_PATH}/man1/example.1.gz" DESTINATION man/man1)
-INSTALL(FILES "etc/profile.d/example.sh"             DESTINATION etc/profile.d)
-INSTALL(FILES "doc/example.txt"                      DESTINATION doc)
+INSTALL(TARGETS exampleshared                                    DESTINATION lib)
+INSTALL(TARGETS examplestatic                                    DESTINATION lib)
+INSTALL(TARGETS example.bin                                      DESTINATION bin)
+INSTALL(PROGRAMS ${EXECUTABLE_OUTPUT_PATH}/example               DESTINATION bin)
+INSTALL(FILES "${INCLUDE_OUTPUT_PATH}/Development.h"             DESTINATION include)
+INSTALL(FILES "${MAN_OUTPUT_PATH}/man1/example.1.gz"             DESTINATION man/man1)
+INSTALL(FILES "${DOC_OUTPUT_PATH}/example.txt"                   DESTINATION doc)
 
 ADD_TEST(FuncoTest               ${EXECUTABLE_OUTPUT_PATH}/example-test  --run_test=FuncoTest)
 ADD_TEST(ApplicationTest         ${EXECUTABLE_OUTPUT_PATH}/example-test  --run_test=ApplicationTest)
