@@ -13,9 +13,7 @@ ADD_CUSTOM_TARGET(dirs
     mkdir -p ${INFO_OUTPUT_PATH} &&
     mkdir -p ${INCLUDE_OUTPUT_PATH} &&
     mkdir -p ${LIBRARY_OUTPUT_PATH} &&
-    mkdir -p ${DOC_OUTPUT_PATH} &&
-    mkdir -p ${TARGET_PATH}/debug &&
-    mkdir -p ${TARGET_PATH}/release
+    mkdir -p ${DOC_OUTPUT_PATH}
 )
 
 ADD_CUSTOM_TARGET(includes    cp ${MAIN_SOURCES_PATH}/cpp/include/Development.h ${INCLUDE_OUTPUT_PATH})

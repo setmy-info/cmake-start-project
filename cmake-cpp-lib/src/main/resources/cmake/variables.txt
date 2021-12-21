@@ -26,9 +26,17 @@ IF(EXISTS "/bin/freebsd-version")
    SET ( DISTRIBUTION "FreeBSD")
 ENDIF()
 
+
+
 SET (PROJECT_VERSION                ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 SET (PROJECT_PATH                   ${PROJECT_BINARY_DIR})
-SET (TARGET_PATH                    ${PROJECT_PATH}/target)
+
+IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    SET (TARGET_PATH                    ${PROJECT_PATH}/target/debug)
+ENDIF()
+IF(CMAKE_BUILD_TYPE STREQUAL "Release")
+    SET (TARGET_PATH                    ${PROJECT_PATH}/target/release)
+ENDIF()
 SET (RESOURCES_PATH                 ${PROJECT_PATH}/resources)
 SET (SOURCES_PATH                   ${PROJECT_PATH}/src)
 SET (MAIN_SOURCES_PATH              ${SOURCES_PATH}/main)
