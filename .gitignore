@@ -5,6 +5,7 @@
 **/Makefile
 **/install_manifest.txt
 **/compile_commands.json
+**/_CPack_Packages
 
 **/*.cmake
 **/build
