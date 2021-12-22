@@ -3,6 +3,6 @@
 # Author: Imre Tabur
 export LD_LIBRARY_PATH=@LIBRARY_OUTPUT_PATH@:$LD_LIBRARY_PATH
 
-valgrind --leak-check=full -v @BINARY_OUTPUT_PATH@/test.bin $@
+valgrind --leak-check=full --show-leak-kinds=all -v @BINARY_OUTPUT_PATH@/test.bin $@
 
 exit 0
