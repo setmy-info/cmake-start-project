@@ -27,6 +27,7 @@ SET(CPACK_RPM_POST_UNINSTALL_SCRIPT_FILE  "src/main/sh/install/post.install.sh")
 SET(CPACK_RPM_PACKAGE_SUMMARY             "Summary")
 SET(CPACK_RPM_PACKAGE_NAME                ${PROJECT_NAME})
 SET(CPACK_RPM_CHANGELOG_FILE              "${PROJECT_PATH}/changelog")
+#SET(CPACK_RPM_PACKAGE_RELOCATABLE         "false")
 # SET(CPACK_RPM_PACKAGE_REQUIRES            "some-else >= 1.0.0")
 
 # https://cmake.org/cmake/help/v3.14/cpack_gen/deb.html
