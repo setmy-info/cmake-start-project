@@ -1,5 +1,7 @@
 # PLACEHOLDER-BEGIN #
 
+SET(CPACK_PACKAGE_DIRECTORY               "${DESTINATION_PATH}")
+
 #https://cmake.org/cmake/help/v3.14/manual/cpack-generators.7.html
 SET(CPACK_PACKAGE_NAME                    "${PROJECT_NAME}")
 SET(CPACK_PACKAGE_VENDOR                  "${PROJECT_VENDOR}")
