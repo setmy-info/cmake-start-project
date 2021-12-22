@@ -288,7 +288,8 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <mainClass>ee.pub.lib.jni.Run</mainClass>
+                    <executable>maven</executable>
+                    <mainClass>info.setmy.jni.example.Run</mainClass>
                     <arguments>
                         <argument>arg0</argument>
                         <argument>arg1</argument>
@@ -296,23 +297,15 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>native-maven-plugin</artifactId>
-                <version>1.0-alpha-11</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>javah</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
                 <configuration>
-                    <javahOutputDirectory>../cmake-cpp-lib/include/</javahOutputDirectory>
-                    <javahOutputFileName>Example.h</javahOutputFileName>
-                    <javahClassNames>
-                        <option>ee.pub.lib.jni.Example</option>
-                    </javahClassNames>
+                    <archive>
+                        <manifest>
+                            <mainClass>info.setmy.jni.example.Run</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

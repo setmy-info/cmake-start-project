@@ -1,6 +1,6 @@
 # PLACEHOLDER-BEGIN #
 
-ADD_DEPENDENCIES(build          gzipman includes docs)
+ADD_DEPENDENCIES(build          gzipman includes docs javah)
 ADD_DEPENDENCIES(gzipman        dirs)
 ADD_DEPENDENCIES(includes       dirs)
 ADD_DEPENDENCIES(docs           dirs)

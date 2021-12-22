@@ -1,10 +1,11 @@
-#include "Example.h"
+#include "Jni.h"
 
 #include <cstdio>
 #include <cstring>
 
-JNIEXPORT jstring JNICALL Java_ee_pub_lib_jni_Example_getHelloString
-(JNIEnv *env, jobject obj, jstring javaString) {
+extern "C" {
+JNIEXPORT jstring JNICALL Java_info_setmy_jni_example_Example_getHelloString
+  (JNIEnv *env, jobject obj, jstring javaString) {
 
     jclass cls = (*env).GetObjectClass(obj);
     //http://dev.kanngard.net/Permalinks/ID_20050509144235.html
@@ -39,4 +40,5 @@ JNIEXPORT jstring JNICALL Java_ee_pub_lib_jni_Example_getHelloString
         return ret;
     }
     return javaString;
+}
 }

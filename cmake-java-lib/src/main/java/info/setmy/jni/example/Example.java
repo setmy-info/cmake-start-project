@@ -1,4 +1,4 @@
-package ee.pub.lib.jni;
+package info.setmy.jni.example;
 
 /**
  * Example class.

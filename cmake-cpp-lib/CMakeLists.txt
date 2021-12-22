@@ -21,7 +21,7 @@ INCLUDE(./src/main/resources/cmake/targets.txt)
 INCLUDE(./src/main/resources/cmake/dependencies.txt)
 INCLUDE(./src/main/resources/cmake/configure.txt)
 INCLUDE(./src/main/resources/cmake/test.txt)
-INCLUDE(./src/main/resources/cmake/install.txt)
+INCLUDE(./src/main/resources/cmake/install/install.txt)
 
 # PLACEHOLDER-PRE-PACKAGING #
 
