@@ -3,7 +3,7 @@
 ADD_DEPENDENCIES(build gzipman includes docs)
 ADD_DEPENDENCIES(gzipman  dirs)
 ADD_DEPENDENCIES(includes dirs)
-ADD_DEPENDENCIES(includes docs)
+ADD_DEPENDENCIES(docs dirs)
 ADD_DEPENDENCIES(clear cmakeClear buildClear pkgClear)
 
 ADD_DEPENDENCIES(example.bin    exampleshared)
