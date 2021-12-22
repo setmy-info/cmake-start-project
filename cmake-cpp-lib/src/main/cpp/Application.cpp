@@ -4,6 +4,7 @@
  * 
  */
 #include "Application.h"
+
 #include "Version.h"
 
 #include <cstdio>
@@ -11,6 +12,9 @@
 #include <cstdlib>
 
 #include <iostream>
+#include <thread>
+
+#include <unistd.h>
 
 void workerFunc();
 
@@ -50,8 +54,17 @@ namespace HAS {
 
     int Application::Main() {
         std::cout << "main: startup" << std::endl;
-
+        std::thread workerThread(workerFunc);
+        std::cout << "main: waiting for thread" << std::endl;
+        workerThread.join();
         std::cout << "main: done" << std::endl;
         return 0;
     }
+}
+
+void workerFunc() {
+std::cout << "Worker: running" << std::endl;
+    // Pretending to do something useful...
+    sleep(3);
+    std::cout << "Worker: finished" << std::endl;    
 }
