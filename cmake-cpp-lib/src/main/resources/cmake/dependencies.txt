@@ -1,17 +1,15 @@
 # PLACEHOLDER-BEGIN #
 
-ADD_DEPENDENCIES(build gzipman includes docs)
-ADD_DEPENDENCIES(gzipman  dirs)
-ADD_DEPENDENCIES(includes dirs)
-ADD_DEPENDENCIES(docs dirs)
-ADD_DEPENDENCIES(mainresources build)
-ADD_DEPENDENCIES(testresources build)
-ADD_DEPENDENCIES(clear cmakeClear buildClear pkgClear)
+ADD_DEPENDENCIES(build          gzipman includes docs)
+ADD_DEPENDENCIES(gzipman        dirs)
+ADD_DEPENDENCIES(includes       dirs)
+ADD_DEPENDENCIES(docs           dirs)
+ADD_DEPENDENCIES(clear          cmakeClear buildClear pkgClear)
 
+ADD_DEPENDENCIES(example.bin    gzipman)
 ADD_DEPENDENCIES(example.bin    exampleshared)
 ADD_DEPENDENCIES(example.bin    examplestatic)
 ADD_DEPENDENCIES(test.bin       exampleshared)
 ADD_DEPENDENCIES(test.bin       examplestatic)
-ADD_DEPENDENCIES(example.bin    gzipman)
 
 # PLACEHOLDER-END #

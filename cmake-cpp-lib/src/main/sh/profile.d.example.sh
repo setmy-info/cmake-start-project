@@ -1,3 +1,0 @@
-
-export PATH=@CMAKE_INSTALL_PREFIX@/bin:$PATH
-

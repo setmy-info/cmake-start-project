@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.22.1)
 
 # PLACEHOLDER-BEGIN #
 
-PROJECT (setmy-info-scripts)
+PROJECT (cmake-cpp-lib)
 
 SET (PROJECT_VERSION_MAJOR              0)
 SET (PROJECT_VERSION_MINOR              1)
@@ -20,10 +20,8 @@ INCLUDE(./src/main/resources/cmake/variables.txt)
 INCLUDE(./src/main/resources/cmake/targets.txt)
 INCLUDE(./src/main/resources/cmake/dependencies.txt)
 INCLUDE(./src/main/resources/cmake/configure.txt)
-INCLUDE(./src/main/resources/cmake/lib.txt)
-INCLUDE(./src/main/resources/cmake/bin.txt)
-INCLUDE(./src/main/resources/cmake/man.txt)
-INCLUDE(./src/main/resources/cmake/etc.txt)
+INCLUDE(./src/main/resources/cmake/test.txt)
+INCLUDE(./src/main/resources/cmake/install.txt)
 
 # PLACEHOLDER-PRE-PACKAGING #
 

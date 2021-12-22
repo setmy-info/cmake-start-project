@@ -3,6 +3,6 @@
 # Author: Imre Tabur
 export LD_LIBRARY_PATH=@LIBRARY_OUTPUT_PATH@:$LD_LIBRARY_PATH
 
-@EXECUTABLE_OUTPUT_PATH@/test.bin $@
+@BINARY_OUTPUT_PATH@/test.bin $@
 
 exit $?

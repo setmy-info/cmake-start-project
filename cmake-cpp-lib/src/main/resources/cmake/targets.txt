@@ -16,8 +16,6 @@ ADD_CUSTOM_TARGET(dirs
     mkdir -p ${DOC_OUTPUT_PATH}
 )
 
-ADD_CUSTOM_TARGET(mainresources cp ./target/debug/lib/libexampleshared.so ../cmake-java-lib/src/main/resources)
-ADD_CUSTOM_TARGET(testresources cp ./target/debug/lib/libexampleshared.so ../cmake-java-lib/src/test/resources)
 ADD_CUSTOM_TARGET(includes    cp ${MAIN_SOURCES_PATH}/cpp/include/Development.h ${INCLUDE_OUTPUT_PATH}/Development.h)
 ADD_CUSTOM_TARGET(docs        cp ${MAIN_SOURCES_PATH}/doc/example.txt ${DOC_OUTPUT_PATH}/example.txt)
 ADD_CUSTOM_TARGET(gzipman     cp ${MAIN_SOURCES_PATH}/man/*.1 ${MAN_OUTPUT_PATH}/man1 && gzip -f ${MAN_OUTPUT_PATH}/man1/*.1)
@@ -28,27 +26,14 @@ ADD_CUSTOM_TARGET(valgrind    ./valgrind-test DEPENDS test.bin WORKING_DIRECTORY
 ADD_CUSTOM_TARGET(doxygen     doxygen)
 ADD_CUSTOM_TARGET(buildClear  rm -rf ${TARGET_PATH})
 ADD_CUSTOM_TARGET(pkgClear    rm -rf ./${PROJECT_NAME}*.tar.gz ./${PROJECT_NAME}*.rpm ./${PROJECT_NAME}*.sh ./${PROJECT_NAME}*.deb ./${PROJECT_NAME}*.tar.Z ./${PROJECT_NAME}*.7z ./${PROJECT_NAME}*.tar.bz2 ./${PROJECT_NAME}*.tar.xz ./${PROJECT_NAME}*.zip)
-ADD_CUSTOM_TARGET(cmakeClear  rm -rf ./*.cmake ./_CPack_Packages install_manifest.txt CMakeCache.txt ${RESOURCES_PATH}/CMakeFiles ${RESOURCES_PATH}/cmake/CMakeFiles ${RESOURCES_PATH}/cmake/*.cmake ${RESOURCES_PATH}/cmake/CMakeCache.txt)
+ADD_CUSTOM_TARGET(cmakeClear  rm -rf ./*.cmake ./_CPack_Packages install_manifest.txt CMakeCache.txt ${RESOURCES_PATH}/CMakeFiles)
 
-ADD_EXECUTABLE(example.bin      src/main/cpp/main.cpp)
+ADD_EXECUTABLE(example.bin      ${PROJECT_MODULE_APPLICATION_SOURCES})
 ADD_EXECUTABLE(test.bin         ${PROJECT_MODULE_TEST_SOURCES})
 ADD_LIBRARY(examplestatic       STATIC ${PROJECT_MODULE_LIBRARY_SOURCES})
 ADD_LIBRARY(exampleshared       SHARED ${PROJECT_MODULE_LIBRARY_SOURCES})
 
 TARGET_LINK_LIBRARIES(example.bin "${EXAMPLE_LINKING}")
 TARGET_LINK_LIBRARIES(test.bin    "${EXAMPLE_TEST_LINKING}")
-
-INSTALL(TARGETS exampleshared                                    DESTINATION lib)
-INSTALL(TARGETS examplestatic                                    DESTINATION lib)
-INSTALL(TARGETS example.bin                                      DESTINATION bin)
-INSTALL(PROGRAMS ${EXECUTABLE_OUTPUT_PATH}/example               DESTINATION bin)
-INSTALL(FILES "${INCLUDE_OUTPUT_PATH}/Development.h"             DESTINATION include)
-INSTALL(FILES "${MAN_OUTPUT_PATH}/man1/example.1.gz"             DESTINATION man/man1)
-INSTALL(FILES "${DOC_OUTPUT_PATH}/example.txt"                   DESTINATION doc)
-
-ADD_TEST(FuncoTest               ${EXECUTABLE_OUTPUT_PATH}/example-test  --run_test=FuncoTest)
-ADD_TEST(ApplicationTest         ${EXECUTABLE_OUTPUT_PATH}/example-test  --run_test=ApplicationTest)
-ADD_TEST(ValgrindFuncoTest       ${EXECUTABLE_OUTPUT_PATH}/valgrind-test --run_test=FuncoTest)
-ADD_TEST(ValgrindApplicationTest ${EXECUTABLE_OUTPUT_PATH}/valgrind-test --run_test=ApplicationTest)
 
 # PLACEHOLDER-END #
