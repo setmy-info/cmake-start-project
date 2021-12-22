@@ -10,3 +10,5 @@
 
 **/*.cmake
 **/target
+
+**/resources/*.so
