@@ -39,10 +39,11 @@ namespace HAS {
             this->parameters.push_back(tmp);
         }
         if (argc < 2) {
-            fprintf(stdout, "%s Version %d.%d\n",
+            fprintf(stdout, "%s Version %d.%d.%d\n",
                     argv[0],
                     PROJECT_MODULE_VERSION_MAJOR,
-                    PROJECT_MODULE_VERSION_MINOR);
+                    PROJECT_MODULE_VERSION_MINOR,
+                    PROJECT_MODULE_VERSION_PATCH);
             fprintf(stdout, "Usage: %s number\n", argv[0]);
             return 1;
         }
