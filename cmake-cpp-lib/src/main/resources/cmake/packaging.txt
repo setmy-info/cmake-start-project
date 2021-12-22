@@ -59,8 +59,8 @@ IF(DISTRIBUTION STREQUAL "Debian")
 ENDIF()
 IF(DISTRIBUTION STREQUAL "FreeBSD")
     # What is proper value for that?
-    SET(CPACK_GENERATOR                       "${DEFAULT_PACKAGES};FreeBSD")
-    #SET(CPACK_GENERATOR                       "${DEFAULT_PACKAGES}")
+    #SET(CPACK_GENERATOR                       "${DEFAULT_PACKAGES};FreeBSD")
+    SET(CPACK_GENERATOR                       "${DEFAULT_PACKAGES}")
 ENDIF()
 
 # PLACEHOLDER-PRE-PACK#
