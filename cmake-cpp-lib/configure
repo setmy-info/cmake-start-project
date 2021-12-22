@@ -7,24 +7,21 @@ DEFAULT_TARGET=Debug
 
 target() {
     TARGET=${DEFAULT_TARGET}
-    runCmake
 }
 
 targetRelease() {
     TARGET=Release
-    runCmake
 }
 
 targetDebug() {
     TARGET=Debug
-    runCmake
 }
 
-runCmake() {
-    CMAKE_OPTIONS=-DCMAKE_BUILD_TYPE=${TARGET}
-    cmake ${CMAKE_OPTIONS} .
+targetCI() {
+    targetRelease
 }
 
 ${TARGET_FUNCTION}
+cmake -DCMAKE_BUILD_TYPE=${TARGET} .
 
-exit 0
+exit ${?}

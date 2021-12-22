@@ -8,7 +8,7 @@ ADD_CUSTOM_TARGET(build             ALL)
 ADD_CUSTOM_TARGET(clear             )
 
 ADD_CUSTOM_TARGET(dirs
-    mkdir -p ${TARGET_PATH} &&
+    mkdir -p ${DESTINATION_PATH} &&
     mkdir -p ${MAN_OUTPUT_PATH}/man1 &&
     mkdir -p ${INFO_OUTPUT_PATH} &&
     mkdir -p ${INCLUDE_OUTPUT_PATH} &&
@@ -16,8 +16,8 @@ ADD_CUSTOM_TARGET(dirs
     mkdir -p ${DOC_OUTPUT_PATH}
 )
 
-ADD_CUSTOM_TARGET(includes    cp ${MAIN_SOURCES_PATH}/cpp/include/Development.h ${INCLUDE_OUTPUT_PATH})
-ADD_CUSTOM_TARGET(docs        cp ${MAIN_SOURCES_PATH}/doc/example.txt ${DOC_OUTPUT_PATH})
+ADD_CUSTOM_TARGET(includes    cp ${MAIN_SOURCES_PATH}/cpp/include/Development.h ${INCLUDE_OUTPUT_PATH}/Development.h)
+ADD_CUSTOM_TARGET(docs        cp ${MAIN_SOURCES_PATH}/doc/example.txt ${DOC_OUTPUT_PATH}/example.txt)
 ADD_CUSTOM_TARGET(gzipman     cp ${MAIN_SOURCES_PATH}/man/*.1 ${MAN_OUTPUT_PATH}/man1 && gzip -f ${MAN_OUTPUT_PATH}/man1/*.1)
 ADD_CUSTOM_TARGET(analysis    echo cccc ${MAIN_SOURCES_PATH}/cpp/*.cpp .${MAIN_SOURCES_PATH}/cpp/include/*.h WORKING_DIRECTORY ./)
 ADD_CUSTOM_TARGET(cppcheck    cppcheck -v --xml --xml-version=2 --enable=all -I ${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/src 2> check.xml WORKING_DIRECTORY ./)
