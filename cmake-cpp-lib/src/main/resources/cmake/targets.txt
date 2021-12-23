@@ -18,6 +18,7 @@ ADD_CUSTOM_TARGET(dirs
     mkdir -p ${DOC_OUTPUT_PATH}
 )
 
+#ADD_CUSTOM_TARGET(clean)
 ADD_CUSTOM_TARGET(javah       javac -h ${MAIN_SOURCES_PATH}/cpp/include ../cmake-java-lib/src/main/java/info/setmy/jni/example/Example.java && rm -rf ../cmake-java-lib/src/main/java/info/setmy/jni/example/*.class)
 ADD_CUSTOM_TARGET(includes    cp ${MAIN_SOURCES_PATH}/cpp/include/Development.h ${INCLUDE_OUTPUT_PATH}/Development.h)
 ADD_CUSTOM_TARGET(docs        cp ${MAIN_SOURCES_PATH}/doc/example.txt ${DOC_OUTPUT_PATH}/example.txt)

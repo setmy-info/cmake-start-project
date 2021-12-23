@@ -2,6 +2,6 @@
 
 export LD_LIBRARY_PATH=/opt/has/lib:${LD_LIBRARY_PATH}
 
-java -cp .:/opt/has/lib/* ee.pub.lib.jni.Run $*
+java -cp .:/opt/setmy.info/lib/* info.setmy.jni.example.Run $*
 
 exit $?

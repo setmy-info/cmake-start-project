@@ -1,10 +1,10 @@
 #!/bin/sh
 
-CUR_DIR=`pwd`
+CUR_DIR=$(pwd)
 
 generateList() {
     cd ../../../target/lib
-    FILE_LIST=`ls`
+    FILE_LIST=$(ls)
     for var in ${FILE_LIST}; do
         echo "INSTALL(FILES \"\${MAN_OUTPUT_PATH}/target/lib/${var}\" DESTINATION lib)"
     done

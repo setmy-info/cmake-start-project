@@ -2,6 +2,6 @@
 
 export LD_LIBRARY_PATH=@PROJECT_BINARY_DIR@/target/classes:@PROJECT_BINARY_DIR@/target/test-classes:${LD_LIBRARY_PATH}:
 
-java -cp .:../target/lib/*:../target/* ee.pub.lib.jni.Run $*
+java -cp .:../target/lib/*:../target/* info.setmy.jni.example.Run $*
 
 exit $?
