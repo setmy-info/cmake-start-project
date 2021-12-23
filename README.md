@@ -19,6 +19,18 @@ CPack Error: Error when generating package: cmake-cpp-lib
 
 ## Development
 
+```sh
+cd cmake-cpp-lib
+./configure [Release|Debug|CI]
+make
+make package
+cd ..
+export LD_LIBRARY_PATH=$(pwd)/cmake-cpp-lib/target/debug/lib
+cd cmake-java-lib
+mvn clean install
+mvn exec:java
+```
+
 ### Preparations
 
 ```sh
