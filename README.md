@@ -13,7 +13,7 @@ CPack Error: Error when generating package: cmake-cpp-lib
 
 3. Java compiles also class file, but only .h file is needed.
 
-4. FreeBSD valgrind shows memory leaks even for empty main file.
+4. FreeBSD valgrind shows memory leaks even for empty main file. But it looks constatn in any non leaking case.
 
 5. Add boost test library.
 

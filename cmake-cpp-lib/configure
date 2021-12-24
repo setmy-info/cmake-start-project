@@ -21,7 +21,28 @@ targetCI() {
     targetRelease
 }
 
-${TARGET_FUNCTION}
-cmake -DCMAKE_BUILD_TYPE=${TARGET} .
+generate() {
+    ${TARGET_FUNCTION}
+    cmake -DCMAKE_BUILD_TYPE=${TARGET} .
+}
+
+case "$TARGET_NAME" in
+"Debug" | "Release" | "CI")
+    generate
+    ;;
+"release")
+    TARGET=Release
+    generate
+    ;;
+"debug")
+    TARGET=Debug
+    generate
+    ;;
+*)
+    echo "Usage: ${0} Release|Debug|CI"
+    echo "Default target \"${DEFAULT_TARGET}\" is used."
+    generate
+    ;;
+esac
 
 exit ${?}
