@@ -13,3 +13,5 @@
 
 **/resources/*.so
 **/*.class
+
+cmake-java-lib/nbactions.xml
