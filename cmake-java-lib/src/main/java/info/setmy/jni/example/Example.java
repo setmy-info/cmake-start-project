@@ -3,7 +3,7 @@ package info.setmy.jni.example;
 /**
  * Example class.
  *
- * @author Imre Tabur <imre.tabur@eesti.ee>
+ * @author Imre Tabur <imre.tabur@mail.ee>
  */
 public class Example {
 

@@ -12,7 +12,7 @@ SET (PROJECT_VERSION_TWEAK              0)
 SET (PROJECT_DESCRIPTION_SUMMARY        "setmy.info C++ project")
 SET (PROJECT_DESCRIPTION                "setmy.info C++ project Example")
 SET (PROJECT_VENDOR                     "Hear And See Systems LLC")
-SET (PROJECT_MAINTAINER                 "Imre Tabur <imre.tabur@eesti.ee>")
+SET (PROJECT_MAINTAINER                 "Imre Tabur <imre.tabur@mail.ee>")
 SET (PROJECT_WWW                        "https://setmy.info")
 SET (PROJECT_LICENSE                    "MIT")
 
